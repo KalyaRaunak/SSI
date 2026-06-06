@@ -26,9 +26,14 @@
 <body>
 
   <!-- Floating Elements -->
-  <a href="https://wa.me/919033655556" target="_blank" class="whatsapp-float" aria-label="Contact SSI on WhatsApp">
-    <span>💬</span> WhatsApp Us
-  </a>
+  <div class="whatsapp-float-wrap">
+    <div class="whatsapp-tooltip">Chat with Us</div>
+    <a href="https://wa.me/919033655556" target="_blank" class="whatsapp-circle-btn" aria-label="Chat with SSI on WhatsApp">
+      <svg viewBox="0 0 24 24">
+        <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.761.459 3.475 1.33 4.988l-1.417 5.176 5.303-1.39c1.465.799 3.111 1.217 4.772 1.217h.004c5.505 0 9.988-4.482 9.988-9.988 0-2.659-1.035-5.159-2.916-7.04-1.881-1.88-4.381-2.917-7.042-2.917zm5.986 14.153c-.261.737-1.516 1.442-2.079 1.503-.523.056-1.205.093-3.415-.823-2.825-1.171-4.646-4.041-4.786-4.227-.14-.187-1.139-1.514-1.139-2.889 0-1.374.721-2.051 1.001-2.333.28-.28.608-.351.812-.351h.581c.186 0 .438-.07.689.537.261.631.896 2.186.974 2.345.078.159.13.344.026.551-.104.208-.156.337-.312.518-.156.182-.328.406-.469.545-.156.155-.321.324-.138.638.182.314.811 1.336 1.734 2.159.924.823 1.701 1.077 2.014 1.233.314.156.496.13.684-.084.187-.215.811-.944 1.029-1.269.219-.324.438-.269.737-.156.3.112 1.91.902 2.234 1.063.324.161.54.24.62.378.081.138.081.799-.18 1.536z"/>
+      </svg>
+    </a>
+  </div>
 
   <!-- SECTION 1: NAVBAR (Sticky) -->
   <header class="navbar-container">
@@ -82,8 +87,8 @@
     <canvas id="hero-particles" class="particle-canvas"></canvas>
     
     <div class="container hero-content">
-      <!-- Top badge -->
-      <div class="hero-badge-container reveal-on-scroll">
+      <!-- Top badge (Trust Badge) -->
+      <div class="hero-badge-container">
         <span class="hero-badge">⭐ AHMEDABAD'S MOST TRUSTED COACHING INSTITUTE</span>
       </div>
 
@@ -97,26 +102,27 @@
         Turning Potential Into Rankers Since 2010<span class="cursor-blink"></span>
       </p>
 
-      <!-- Course Tags Row -->
+      <!-- Course Tags Row (staggered delay via inline variables) -->
       <div class="hero-tags-row">
-        <a href="courses.html#jee" class="hero-tag">[ JEE Main & Advanced ]</a>
-        <a href="courses.html#neet" class="hero-tag">[ NEET UG ]</a>
-        <a href="courses.html#gujcet" class="hero-tag">[ GUJCET ]</a>
-        <a href="courses.html#science" class="hero-tag">[ Boards 10th–12th ]</a>
-        <a href="courses.html#foundation" class="hero-tag">[ Foundation 5th–9th ]</a>
+        <a href="courses.html#jee" class="hero-tag" style="animation-delay: 1000ms;">[ JEE Main & Advanced ]</a>
+        <a href="courses.html#neet" class="hero-tag" style="animation-delay: 1100ms;">[ NEET UG ]</a>
+        <a href="courses.html#gujcet" class="hero-tag" style="animation-delay: 1200ms;">[ GUJCET ]</a>
+        <a href="courses.html#science" class="hero-tag" style="animation-delay: 1300ms;">[ Boards 10th–12th ]</a>
+        <a href="courses.html#foundation" class="hero-tag" style="animation-delay: 1400ms;">[ Foundation 5th–9th ]</a>
       </div>
 
       <!-- CTA Buttons Row -->
       <div class="hero-cta-row">
-        <a href="#enquiry" class="btn btn-primary pulse">Apply Now &rarr;</a>
+        <a href="#enquiry" class="btn btn-primary">Apply Now &rarr;</a>
         <a href="results.html" class="btn btn-secondary">🏆 View Results</a>
         <a href="https://wa.me/919033655556" target="_blank" class="btn btn-whatsapp">💬 WhatsApp Inquiry</a>
       </div>
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-      <a href="#stats" class="scroll-arrow" aria-label="Scroll down to statistics">&darr;</a>
+    <div class="scroll-indicator-wrap">
+      <span class="arrow">&darr;</span>
+      <span class="text">Scroll to Explore</span>
     </div>
   </section>
 

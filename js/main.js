@@ -78,9 +78,8 @@ function initHeroTextReveal() {
   const revealElements = document.querySelectorAll('.reveal-text-words');
   revealElements.forEach(element => {
     const text = element.textContent.trim();
-    // Split by spaces but preserve elements
     const words = text.split(/\s+/);
-    element.innerHTML = ''; // Clear original text
+    element.innerHTML = '';
 
     words.forEach((word, index) => {
       const wrapper = document.createElement('span');
@@ -89,12 +88,11 @@ function initHeroTextReveal() {
       const wordSpan = document.createElement('span');
       wordSpan.className = 'reveal-word';
       wordSpan.textContent = word + ' ';
-      wordSpan.style.animationDelay = `${index * 0.12}s`;
+      wordSpan.style.animationDelay = `${200 + index * 80}ms`;
       
-      // Keep styling if the original word contained special class cues
       if (word.includes('SUCCESS') || word.includes('EXPERTS')) {
-        wordSpan.classList.add('highlight-white');
-      } else if (word.includes('शुरुआत') || word.includes('साथ')) {
+        wordSpan.classList.add('weight-900');
+      } else if (word.includes('शुरुआत') || word.includes('साथ') || word.includes('सिर्फ') || word.includes('की') || word.includes('के')) {
         wordSpan.classList.add('highlight-gold');
       }
 
@@ -127,18 +125,18 @@ function initCanvasParticles() {
     constructor() {
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 2 + 0.5;
-      this.speedX = Math.random() * 0.3 - 0.15;
-      this.speedY = Math.random() * -0.4 - 0.1; // Float upwards
-      this.color = Math.random() > 0.5 ? '#F5A623' : '#1E1EBF';
-      this.alpha = Math.random() * 0.6 + 0.2;
+      this.size = Math.random() * 2 + 1; // 1px to 3px
+      this.speedY = -(Math.random() * 0.9 + 0.3); // Float upward slowly (0.3 to 1.2 speed)
+      this.speedX = Math.random() * 0.2 - 0.1; // Very slight horizontal sway
+      this.alpha = Math.random() * 0.6 + 0.2; // 0.2 to 0.8 opacity
+      this.colorType = Math.random() < 0.7 ? 'white' : 'gold'; // 70% white, 30% gold
     }
 
     update() {
-      this.x += this.speedX;
       this.y += this.speedY;
+      this.x += this.speedX;
 
-      // Wrap around screen edge
+      // Wrap around screen edge when exiting top
       if (this.y < 0) {
         this.y = canvas.height;
         this.x = Math.random() * canvas.width;
@@ -153,16 +151,22 @@ function initCanvasParticles() {
       ctx.globalAlpha = this.alpha;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = this.color;
-      ctx.shadowBlur = 6;
-      ctx.shadowColor = this.color;
+      
+      if (this.colorType === 'white') {
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+      } else {
+        ctx.fillStyle = `rgba(245, 166, 35, ${this.alpha})`;
+      }
+      
+      ctx.shadowBlur = 4;
+      ctx.shadowColor = this.colorType === 'white' ? '#FFFFFF' : '#F5A623';
       ctx.fill();
       ctx.restore();
     }
   }
 
   // Generate particles
-  const particleCount = Math.min(80, Math.floor(canvas.width / 15));
+  const particleCount = 120; // Exactly 120 particles
   const particles = [];
   for (let i = 0; i < particleCount; i++) {
     particles.push(new Particle());
@@ -188,6 +192,7 @@ function initCanvasParticles() {
     }
   });
 }
+
 
 /* ==========================================
    5. SCROLL FADE-IN & SLIDE-UP (Intersection Observer)

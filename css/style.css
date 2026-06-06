@@ -465,21 +465,19 @@ header.navbar-container.scrolled {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 120px 0 80px;
   overflow: hidden;
   background-color: var(--color-navy-dark);
+  z-index: 1;
 }
 
 .hero-radial-glow {
+  background: radial-gradient(ellipse 800px 500px at 40% 50%, rgba(30, 30, 191, 0.35) 0%, transparent 70%);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(30, 30, 191, 0.25) 0%, rgba(245, 166, 35, 0.05) 50%, rgba(10, 10, 46, 0) 100%);
-  pointer-events: none;
+  inset: 0;
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -488,112 +486,396 @@ header.navbar-container.scrolled {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
+  padding: 0 1.5rem;
 }
 
+/* 1. Trust Badge */
 .hero-badge-container {
-  margin-bottom: 2rem;
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeSlideDown 0.5s ease forwards;
 }
 
 .hero-badge {
-  font-family: var(--font-headings);
-  font-weight: 700;
-  color: var(--color-gold);
-  border: 1.5px solid var(--color-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--color-gold);
   background: rgba(245, 166, 35, 0.08);
-  padding: 0.5rem 1.2rem;
-  border-radius: var(--border-radius-round);
-  font-size: 0.9rem;
-  letter-spacing: 1px;
+  color: var(--color-gold);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
+/* 2. Main Headline */
 .hero-headline {
-  font-size: 3.8rem;
+  font-size: clamp(42px, 7vw, 88px);
   font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 16px;
   letter-spacing: -0.5px;
+  color: var(--color-white);
+  font-family: var(--font-headings);
 }
 
+.hero-headline .word-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.hero-headline .reveal-word {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  animation: slideUpWord 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-headline span.highlight-gold {
+  color: var(--color-gold) !important;
+  font-weight: 800;
+}
+
+.hero-headline span.weight-900 {
+  font-weight: 900;
+  color: var(--color-white);
+}
+
+/* 3. Sub-headline */
 .hero-subheadline {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--color-off-white);
-  margin-bottom: 3rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(15px, 2.5vw, 20px);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease 800ms forwards;
 }
 
+.cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: var(--color-gold);
+  margin-left: 5px;
+  vertical-align: middle;
+  animation: waCursorBlink 1s step-end infinite;
+}
+
+/* 4. Course Tag Pills */
 .hero-tags-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.8rem;
-  margin-bottom: 3rem;
+  gap: 8px;
+  margin-bottom: 36px;
 }
 
 .hero-tag {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--color-white);
-  padding: 0.5rem 1.2rem;
-  border-radius: var(--border-radius-round);
-  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+  font-size: 14px;
   font-weight: 500;
-  transition: var(--transition-normal);
-  background-color: rgba(255, 255, 255, 0.03);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideLeftPill 0.5s ease forwards;
 }
 
 .hero-tag:hover {
-  background-color: var(--color-gold);
+  background: rgba(245, 166, 35, 0.15);
   border-color: var(--color-gold);
-  color: var(--color-navy-dark);
+  color: var(--color-gold);
   transform: translateY(-2px);
 }
 
+/* 5. CTA Buttons Row */
 .hero-cta-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.2rem;
+  gap: 16px;
   margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeSlideUp 0.6s ease 1200ms forwards;
 }
 
-/* Cursor blink */
-.cursor-blink {
-  display: inline-block;
-  width: 3px;
-  height: 20px;
+.hero-cta-row .btn-primary {
   background-color: var(--color-gold);
-  margin-left: 5px;
-  animation: blink 0.8s infinite;
-  vertical-align: middle;
+  color: var(--color-navy-dark);
+  font-family: var(--font-headings);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  box-shadow: 0 0 20px rgba(245, 166, 35, 0.4);
+  transition: all 0.25s ease;
+  animation: ctaPulse 2s infinite;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
+.hero-cta-row .btn-primary:hover {
+  background-color: var(--color-gold-light);
+  box-shadow: 0 0 35px rgba(245, 166, 35, 0.65);
+  transform: translateY(-2px);
 }
 
-.scroll-indicator {
+.hero-cta-row .btn-secondary {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+.hero-cta-row .btn-secondary:hover {
+  border-color: var(--color-white);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.hero-cta-row .btn-whatsapp {
+  background-color: var(--color-whatsapp);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+.hero-cta-row .btn-whatsapp:hover {
+  background-color: #20b858;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+}
+
+/* 6. Scroll Indicator */
+.scroll-indicator-wrap {
   position: absolute;
-  bottom: 30px;
+  bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  animation: bounce 2s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease 1600ms forwards;
 }
 
-.scroll-arrow {
+.scroll-indicator-wrap span.arrow {
   color: var(--color-gold);
-  font-size: 1.5rem;
+  font-size: 20px;
+  line-height: 1;
+  animation: scrollExploreBounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator-wrap span.text {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   7. FLOATING ELEMENTS & TOOLTIPS
+   ========================================== */
+.whatsapp-float-wrap {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.whatsapp-tooltip {
+  background-color: var(--color-white);
+  color: var(--color-navy-dark);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float-wrap:hover .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.whatsapp-circle-btn {
+  width: 58px;
+  height: 58px;
+  background-color: var(--color-whatsapp);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  transition: all 0.25s ease;
+  animation: waBounce 2.5s ease-in-out infinite;
   cursor: pointer;
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0) translateX(-50%);
+.whatsapp-circle-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--color-white);
+}
+
+.whatsapp-circle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+  background-color: #20B858;
+}
+
+/* Scroll-to-Top */
+.scroll-to-top {
+  position: fixed;
+  bottom: 96px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(30, 30, 191, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+  z-index: 998;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background-color: var(--color-gold);
+  color: var(--color-navy-dark);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+/* Animation Keyframes */
+@keyframes fadeSlideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
   }
-  40% {
-    transform: translateY(-12px) translateX(-50%);
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  60% {
-    transform: translateY(-6px) translateX(-50%);
+}
+
+@keyframes slideUpWord {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes waCursorBlink {
+  from, to { background-color: transparent; }
+  50% { background-color: var(--color-gold); }
+}
+
+@keyframes slideLeftPill {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes ctaPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(245, 166, 35, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 166, 35, 0);
+  }
+}
+
+@keyframes scrollExploreBounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes waBounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }
 
