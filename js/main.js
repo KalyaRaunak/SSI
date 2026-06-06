@@ -225,14 +225,15 @@ function initScrollAnimations() {
    6. STATS COUNTER ANIMATION
    ========================================== */
 function initStatsCounter() {
-  const statsSection = document.querySelector('.stats-section');
-  const countElements = document.querySelectorAll('.stat-number');
-  if (!statsSection || countElements.length === 0) return;
+  const statsSections = document.querySelectorAll('.stats-section');
+  if (statsSections.length === 0) return;
 
-  let hasRun = false;
-
-  const startCounter = () => {
+  const startCounter = (section) => {
+    const countElements = section.querySelectorAll('.stat-number');
     countElements.forEach(element => {
+      if (element.classList.contains('counted')) return;
+      element.classList.add('counted');
+
       const target = parseInt(element.getAttribute('data-target'), 10);
       const suffix = element.getAttribute('data-suffix') || '';
       let current = 0;
@@ -253,17 +254,18 @@ function initStatsCounter() {
     });
   };
 
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !hasRun) {
-        startCounter();
-        hasRun = true;
-        observer.unobserve(entry.target);
+      if (entry.isIntersecting) {
+        startCounter(entry.target);
+        obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.05 });
 
-  observer.observe(statsSection);
+  statsSections.forEach(section => {
+    observer.observe(section);
+  });
 }
 
 /* ==========================================
@@ -278,8 +280,8 @@ function initCountdownTimer() {
 
   if (!countdownContainer) return;
 
-  // Target date: June 30, 2026 23:59:59 (local or UTC)
-  const targetDate = new Date('2026-06-30T23:59:59').getTime();
+  // Target date: June 30, 2026 23:59:59 (local) - Note: Month index is 0-based, so 5 is June
+  const targetDate = new Date(2026, 5, 30, 23, 59, 59).getTime();
 
   const updateCountdown = () => {
     const now = new Date().getTime();

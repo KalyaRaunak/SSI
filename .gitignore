@@ -10,3 +10,5 @@ task.md
 implementation_plan.md
 # Ignore OS generated files
 Thumbs.db
+
+.vercel
