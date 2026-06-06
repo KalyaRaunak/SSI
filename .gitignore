@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.gemini/
+.git/
+.system_generated/
+walkthrough.md
+task.md
+implementation_plan.md
+# Ignore OS generated files
+Thumbs.db

@@ -1,0 +1,1972 @@
+/* 
+ * Shree Sai Institute — CSS Design System & Stylesheet
+ * Brand Theme: Dark Navy Dominant, Royal Blue Secondary, Gold Accents
+ */
+
+/* ==========================================
+   1. VARIABLES & DESIGN TOKENS
+   ========================================== */
+:root {
+  --color-primary: #1E1EBF;
+  --color-primary-rgb: 30, 30, 191;
+  --color-navy-dark: #0A0A2E;
+  --color-navy-dark-rgb: 10, 10, 46;
+  --color-navy-card: #12124A;
+  --color-navy-card-rgb: 18, 18, 74;
+  --color-navy-deep: #060620;
+  --color-gold: #F5A623;
+  --color-gold-rgb: 245, 166, 35;
+  --color-gold-light: #FFB84D;
+  --color-white: #FFFFFF;
+  --color-off-white: #F0F4FF;
+  --color-text-dark: #0D0D2B;
+  --color-text-muted: #A3A3D2;
+  --color-border-subtle: #2A2A7A;
+  --color-whatsapp: #25D366;
+  --color-success: #10B981;
+
+  --font-headings: 'Montserrat', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-glow-blue: 0 0 15px rgba(30, 30, 191, 0.4);
+  --shadow-glow-gold: 0 0 20px rgba(245, 166, 35, 0.35);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  --border-radius-sm: 6px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-round: 50px;
+}
+
+/* ==========================================
+   2. RESET & BASE STYLES
+   ========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-navy-dark);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+  display: inline-block;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Highlight style */
+.highlight-gold {
+  color: var(--color-gold) !important;
+}
+
+.highlight-white {
+  color: var(--color-white) !important;
+}
+
+/* Section label tag style */
+.section-tag {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Common Section Heading Container */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================
+   3. LAYOUT COMPONENTS
+   ========================================== */
+
+/* Navbar Navigation */
+header.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition-normal);
+  padding: 1.2rem 0;
+}
+
+header.navbar-container.scrolled {
+  background-color: rgba(10, 10, 46, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Representation */
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-main {
+  font-family: var(--font-headings);
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--color-white);
+  letter-spacing: 1px;
+}
+
+.logo-main span {
+  color: var(--color-gold);
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.logo-tagline {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--color-gold-light);
+  margin-top: 2px;
+}
+
+.logo-subtagline {
+  font-size: 0.5rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.5px;
+  margin-top: 1px;
+}
+
+/* Nav Menu links */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-off-white);
+  padding: 0.5rem 0;
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-gold);
+  transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-gold);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--color-gold);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Dropdown Menu */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: var(--transition-fast);
+}
+
+.nav-item-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+  color: var(--color-gold);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--color-navy-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-md);
+  padding: 0.8rem 0;
+  width: 240px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-card);
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-off-white);
+  transition: var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background-color: rgba(30, 30, 191, 0.3);
+  color: var(--color-gold);
+  padding-left: 1.8rem;
+}
+
+/* Navbar Buttons */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Hamburger menu button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1010;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: var(--transition-normal);
+}
+
+/* Mobile Nav Open Animation */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ==========================================
+   4. BUTTONS & BADGES
+   ========================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--border-radius-round);
+  font-size: 0.95rem;
+  transition: var(--transition-normal);
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--color-gold);
+  color: var(--color-navy-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-primary.pulse {
+  animation: pulse-glow-gold 2s infinite;
+}
+
+.btn-secondary {
+  border: 2px solid var(--color-border-subtle);
+  color: var(--color-white);
+  background-color: rgba(10, 10, 46, 0.5);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background-color: var(--color-whatsapp);
+  color: var(--color-white);
+}
+
+.btn-whatsapp:hover {
+  background-color: #20ba5a;
+  transform: translateY(-2px);
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border-radius: var(--border-radius-round);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.badge-outline-gold {
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  background-color: rgba(245, 166, 35, 0.1);
+}
+
+/* ==========================================
+   5. DECORATIONS & REVEAL ON SCROLL
+   ========================================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition-slow);
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(18, 18, 74, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(42, 42, 122, 0.4);
+}
+
+/* Card Glow lift effect on hover */
+.glow-card {
+  transition: var(--transition-normal);
+  border-top: 3px solid var(--color-gold);
+}
+
+.glow-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+/* ==========================================
+   6. HERO SECTION
+   ========================================== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  overflow: hidden;
+  background-color: var(--color-navy-dark);
+}
+
+.hero-radial-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(30, 30, 191, 0.25) 0%, rgba(245, 166, 35, 0.05) 50%, rgba(10, 10, 46, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-badge-container {
+  margin-bottom: 2rem;
+}
+
+.hero-badge {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  color: var(--color-gold);
+  border: 1.5px solid var(--color-gold);
+  background: rgba(245, 166, 35, 0.08);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius-round);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.hero-headline {
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.hero-subheadline {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-off-white);
+  margin-bottom: 3rem;
+}
+
+.hero-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 3rem;
+}
+
+.hero-tag {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius-round);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition-normal);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.hero-tag:hover {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy-dark);
+  transform: translateY(-2px);
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 4rem;
+}
+
+/* Cursor blink */
+.cursor-blink {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background-color: var(--color-gold);
+  margin-left: 5px;
+  animation: blink 0.8s infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+  color: var(--color-gold);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-12px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-6px) translateX(-50%);
+  }
+}
+
+/* ==========================================
+   7. STATS SECTION
+   ========================================== */
+.stats-section {
+  position: relative;
+  z-index: 5;
+  background-color: var(--color-navy-deep);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-card {
+  padding: 2.5rem 1.5rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  border: 1px solid rgba(42, 42, 122, 0.3);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-normal);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow-blue);
+  border-color: var(--color-primary);
+}
+
+.stat-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.stat-number {
+  font-family: var(--font-headings);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-gold);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================
+   8. COURSES GRID SECTION
+   ========================================== */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.course-card {
+  background-color: var(--color-navy-card);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.course-card-icon-box {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: rgba(245, 166, 35, 0.1);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-gold);
+}
+
+.course-card-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.course-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.course-card-desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.course-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.course-card-tag {
+  font-size: 0.75rem;
+  background-color: rgba(30, 30, 191, 0.15);
+  border: 1px solid rgba(30, 30, 191, 0.4);
+  color: var(--color-off-white);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--border-radius-sm);
+}
+
+.course-card-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.course-card-link:hover {
+  text-decoration: underline;
+  color: var(--color-gold-light);
+}
+
+/* ==========================================
+   9. TOPPERS TICKER & TOPPERS SECTION
+   ========================================== */
+.toppers-section {
+  overflow: hidden;
+  background-color: var(--color-navy-dark);
+}
+
+.ticker-container {
+  background-color: var(--color-navy-card);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 1.2rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 4rem;
+}
+
+.ticker-wrapper {
+  display: inline-block;
+  animation: marquee 35s linear infinite;
+}
+
+.ticker-item {
+  display: inline-block;
+  color: var(--color-white);
+  font-family: var(--font-headings);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-right: 3rem;
+  letter-spacing: 0.5px;
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.toppers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.topper-card {
+  background-color: var(--color-navy-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  transition: var(--transition-normal);
+}
+
+.topper-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow-blue);
+  border-color: var(--color-primary);
+}
+
+.topper-rank-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+}
+
+.topper-avatar-box {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-primary) 0%, var(--color-navy-dark) 100%);
+  border: 3px solid var(--color-gold);
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.topper-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.3rem;
+}
+
+.topper-exam {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.topper-score-badge {
+  background-color: var(--color-gold);
+  color: var(--color-navy-dark);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.3rem 1rem;
+  border-radius: var(--border-radius-round);
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.topper-batch {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================
+   10. WHY CHOOSE US (FACILITIES)
+   ========================================== */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 1.8rem;
+}
+
+.facility-card {
+  padding: 2.5rem 2rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(42, 42, 122, 0.4);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-normal);
+}
+
+.facility-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow-gold);
+  border-color: var(--color-gold);
+}
+
+.facility-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 1.2rem;
+}
+
+.facility-icon-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(245, 166, 35, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.facility-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.facility-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* ==========================================
+   11. TESTIMONIALS SECTION
+   ========================================== */
+.testimonials-section {
+  background-color: var(--color-navy-deep);
+}
+
+.testimonials-slider-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonials-slider {
+  position: relative;
+  min-height: 280px;
+}
+
+.testimonial-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: scale(0.96) translateY(10px);
+  background-color: var(--color-navy-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.testimonial-card.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  position: relative;
+}
+
+.testimonial-stars {
+  color: var(--color-gold);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-quote-box {
+  position: relative;
+}
+
+.testimonial-quote-icon {
+  font-size: 4rem;
+  color: rgba(245, 166, 35, 0.08);
+  position: absolute;
+  top: -30px;
+  left: -10px;
+  font-family: serif;
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 1.05rem;
+  color: var(--color-white);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+  font-style: italic;
+}
+
+.testimonial-student {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+}
+
+.student-name {
+  font-weight: 700;
+  color: var(--color-gold);
+  font-size: 1.1rem;
+}
+
+.student-achievement {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-border-subtle);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.dot.active {
+  background-color: var(--color-gold);
+  transform: scale(1.25);
+  box-shadow: 0 0 8px var(--color-gold);
+}
+
+/* ==========================================
+   12. GALLERY BENTO GRID
+   ========================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 1.2rem;
+}
+
+.gallery-item {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--color-border-subtle);
+  background-color: var(--color-navy-card);
+  transition: var(--transition-slow);
+}
+
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+.gallery-item-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(30,30,191,0.2) 0%, rgba(10,10,46,0.8) 100%);
+  z-index: 1;
+  transition: var(--transition-slow);
+}
+
+.gallery-item-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.gallery-item-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-gold);
+  transition: var(--transition-normal);
+}
+
+.gallery-item-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.2rem;
+}
+
+.gallery-item-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.gallery-item:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.gallery-item:hover .gallery-item-bg {
+  background: linear-gradient(135deg, rgba(245,166,35,0.1) 0%, rgba(10,10,46,0.9) 100%);
+}
+
+.gallery-item:hover .gallery-item-icon {
+  transform: scale(1.15) translateY(-2px);
+}
+
+/* ==========================================
+   13. ADMISSION CTA SECTION (GOLD GRADIENT)
+   ========================================== */
+.admission-section {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #E8941A 100%);
+  color: var(--color-navy-dark);
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+.admission-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.admission-badge-container {
+  margin-bottom: 1.5rem;
+}
+
+.admission-badge {
+  background-color: var(--color-navy-dark);
+  color: var(--color-gold);
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius-round);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.admission-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.admission-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.admission-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admission-tag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-navy-dark);
+}
+
+/* Countdown Clock */
+.countdown-box {
+  background-color: var(--color-navy-dark);
+  color: var(--color-white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.countdown-box h3 {
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.countdown-digits-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.countdown-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.countdown-num {
+  font-family: var(--font-headings);
+  font-size: 2.4rem;
+  font-weight: 800;
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--border-radius-md);
+  width: 100%;
+  padding: 0.5rem 0;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.countdown-lbl {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 1px;
+}
+
+.batches-enrolling-msg {
+  font-family: var(--font-headings);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-gold);
+  padding: 1rem 0;
+}
+
+/* Schedule Table */
+.schedule-table-box {
+  margin-top: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schedule-table td {
+  padding: 0.8rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(10, 10, 46, 0.1);
+}
+
+.schedule-table tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule-table td:last-child {
+  text-align: right;
+  font-weight: 700;
+  color: var(--color-navy-dark);
+}
+
+/* ==========================================
+   14. ENQUIRY FORM & CONTACT SECTION
+   ========================================== */
+.enquiry-section {
+  background-color: var(--color-navy-dark);
+  position: relative;
+  z-index: 5;
+}
+
+.enquiry-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+}
+
+.enquiry-form-card {
+  background-color: var(--color-navy-card);
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-card);
+}
+
+.form-group-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-off-white);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  width: 100%;
+  background-color: rgba(10, 10, 46, 0.6);
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem 1rem;
+  color: var(--color-white);
+  transition: var(--transition-fast);
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+  border-color: var(--color-gold);
+  outline: none;
+  box-shadow: 0 0 10px rgba(245, 166, 35, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Contact Info Column */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-branch-card {
+  background-color: rgba(18, 18, 74, 0.4);
+  border: 1px solid var(--color-border-subtle);
+  padding: 2rem;
+  border-radius: var(--border-radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-branch-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--color-gold);
+}
+
+.branch-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-gold-light);
+}
+
+.branch-detail {
+  display: flex;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.branch-detail:last-child {
+  margin-bottom: 0;
+}
+
+.branch-detail span.icon {
+  color: var(--color-gold);
+  flex-shrink: 0;
+  font-weight: bold;
+}
+
+.contact-misc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 2rem;
+}
+
+.misc-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: var(--color-off-white);
+}
+
+.misc-item span.icon {
+  color: var(--color-gold);
+  font-size: 1.2rem;
+}
+
+/* ==========================================
+   15. COURSES DIRECTORY PAGE STYLING
+   ========================================== */
+.courses-page-hero {
+  padding: 140px 0 60px;
+  background-color: var(--color-navy-deep);
+  border-bottom: 1px solid var(--color-border-subtle);
+  text-align: center;
+}
+
+.courses-tabs-container {
+  display: flex;
+  margin-top: -30px;
+  position: relative;
+  z-index: 50;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding: 0 1rem;
+}
+
+.course-tab-btn {
+  background-color: var(--color-navy-card);
+  border: 1.5px solid var(--color-border-subtle);
+  color: var(--color-off-white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius-round);
+  transition: var(--transition-normal);
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+}
+
+.course-tab-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.course-tab-btn.active {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy-dark);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.course-content-section {
+  display: none;
+  padding: 5rem 0;
+}
+
+.course-content-section.active {
+  display: block;
+}
+
+.course-overview-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.course-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.course-feat-card {
+  background-color: var(--color-navy-card);
+  border: 1px solid var(--color-border-subtle);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  gap: 15px;
+}
+
+.course-subject-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0 4rem;
+}
+
+.course-subject-card {
+  background-color: var(--color-navy-card);
+  border-top: 3px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  padding: 1.8rem 1.2rem;
+  text-align: center;
+  transition: var(--transition-normal);
+}
+
+.course-subject-card:hover {
+  transform: translateY(-4px);
+  border-top-color: var(--color-gold);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.course-subject-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.course-subject-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Fee batch wrapper tables */
+.table-responsive-box {
+  background-color: var(--color-navy-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.responsive-table th, 
+.responsive-table td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
+.responsive-table th {
+  background-color: rgba(30, 30, 191, 0.2);
+  color: var(--color-gold);
+  font-family: var(--font-headings);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.responsive-table td {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.95rem;
+}
+
+.responsive-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================
+   16. ABOUT US PAGE STYLING
+   ========================================== */
+.about-hero {
+  padding: 140px 0 60px;
+  background-color: var(--color-navy-deep);
+  border-bottom: 1px solid var(--color-border-subtle);
+  text-align: center;
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-intro-text p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.mv-card {
+  padding: 3rem 2.5rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.mv-icon {
+  font-size: 2.5rem;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.mv-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.mv-card p {
+  color: var(--color-text-muted);
+}
+
+/* Founder Layout */
+.founder-section {
+  background-color: var(--color-navy-deep);
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.founder-photo-box {
+  position: relative;
+  text-align: center;
+}
+
+.founder-circle-avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-primary) 0%, var(--color-navy-dark) 100%);
+  border: 5px solid var(--color-gold);
+  box-shadow: var(--shadow-glow-gold);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  color: var(--color-gold);
+  font-weight: 800;
+}
+
+.founder-info h3 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.founder-title {
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.founder-credentials {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.founder-bio {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.founder-quote {
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 500;
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1.5rem;
+  color: var(--color-white);
+}
+
+/* Faculty Grid */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.faculty-card {
+  background-color: var(--color-navy-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: var(--transition-normal);
+}
+
+.faculty-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.faculty-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-primary) 0%, var(--color-navy-dark) 100%);
+  border: 3px solid var(--color-border-subtle);
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.faculty-card:hover .faculty-avatar {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.faculty-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.faculty-subject {
+  color: var(--color-gold);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.faculty-exp {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+   17. RESULTS PAGE STYLING
+   ========================================== */
+.results-page-hero {
+  padding: 140px 0 60px;
+  background-color: var(--color-navy-deep);
+  border-bottom: 1px solid var(--color-border-subtle);
+  text-align: center;
+}
+
+.filters-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: -30px;
+  position: relative;
+  z-index: 50;
+  padding: 0 1rem;
+}
+
+.filter-btn {
+  background-color: var(--color-navy-card);
+  border: 1.5px solid var(--color-border-subtle);
+  color: var(--color-off-white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--border-radius-round);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-card);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.filter-btn.active {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy-dark);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.results-grid-container {
+  padding: 5rem 0;
+}
+
+.results-section-block {
+  margin-bottom: 5rem;
+}
+
+.results-section-block:last-child {
+  margin-bottom: 0;
+}
+
+.results-section-block h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--color-gold);
+  padding-left: 1rem;
+  font-family: var(--font-headings);
+}
+
+/* ==========================================
+   18. MOBILE RESPONSIVENESS OVERRIDES
+   ========================================== */
+@media (max-width: 1024px) {
+  .hero-headline {
+    font-size: 3rem;
+  }
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .toppers-grid, .faculty-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .facilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  /* Show Hamburger, Hide nav links */
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--color-navy-dark);
+    border-left: 1px solid var(--color-border-subtle);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6rem 2rem 2rem;
+    gap: 1.5rem;
+    z-index: 1005;
+    transition: var(--transition-normal);
+    overflow-y: auto;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  }
+
+  /* Courses dropdown expanded inline for mobile */
+  .nav-item-dropdown .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: rgba(18, 18, 74, 0.4);
+    box-shadow: none;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    display: block;
+  }
+
+  .nav-item-dropdown:hover .dropdown-arrow {
+    transform: none;
+  }
+
+  .dropdown-item {
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-actions {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+
+  .hero-headline {
+    font-size: 2.4rem;
+  }
+  .hero-subheadline {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .courses-grid, .toppers-grid, .facilities-grid, .faculty-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Horizontal scroll for topper cards on mobile */
+  .toppers-mobile-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 0 2rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+  }
+  .toppers-mobile-scroll::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  .toppers-mobile-scroll .topper-card {
+    flex-shrink: 0;
+    width: 280px;
+    scroll-snap-align: center;
+  }
+
+  .admission-grid, .enquiry-grid, .course-overview-grid, .about-intro-grid, .founder-grid, .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .course-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-subject-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .founder-photo-box {
+    order: -1;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-actions .btn-whatsapp {
+    display: none; /* Hide WhatsApp button in small viewport nav to fit 'Apply Now' */
+  }
+  .nav-menu {
+    width: 100%;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .course-subject-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-cta-row .btn {
+    width: 100%;
+  }
+  .countdown-digits-wrapper {
+    gap: 0.5rem;
+  }
+  .countdown-col {
+    min-width: 55px;
+  }
+  .countdown-num {
+    font-size: 1.8rem;
+  }
+  .enquiry-form-card {
+    padding: 1.5rem;
+  }
+  .form-group-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
