@@ -7,34 +7,34 @@
    1. VARIABLES & DESIGN TOKENS
    ========================================== */
 :root {
-  --color-primary: #1E1EBF;
-  --color-primary-rgb: 30, 30, 191;
-  --color-navy-dark: #0A0A2E;
-  --color-navy-dark-rgb: 10, 10, 46;
-  --color-navy-card: #12124A;
-  --color-navy-card-rgb: 18, 18, 74;
-  --color-navy-deep: #060620;
-  --color-gold: #F5A623;
-  --color-gold-rgb: 245, 166, 35;
-  --color-gold-light: #FFB84D;
+  --color-primary: #f97316; /* Orange Accent */
+  --color-primary-rgb: 249, 115, 22;
+  --color-navy-dark: #0f172a; /* Slate-900 Background */
+  --color-navy-dark-rgb: 15, 23, 42;
+  --color-navy-card: #1e293b; /* Slate-800 Cards */
+  --color-navy-card-rgb: 30, 41, 59;
+  --color-navy-deep: #0b0f19; /* Darker Slate-950 Background */
+  --color-gold: #f97316; /* Primary Accent (mapped to gold variable) */
+  --color-gold-rgb: 249, 115, 22;
+  --color-gold-light: #ea6c0a; /* Light Orange Accent */
   --color-white: #FFFFFF;
-  --color-off-white: #F0F4FF;
-  --color-text-dark: #0D0D2B;
-  --color-text-muted: #A3A3D2;
-  --color-border-subtle: #2A2A7A;
+  --color-off-white: #f8fafc; /* Slate-50 Off-White */
+  --color-text-dark: #0f172a;
+  --color-text-muted: #94a3b8; /* Slate-400 Muted */
+  --color-border-subtle: #334155; /* Slate-700 Border */
   --color-whatsapp: #25D366;
   --color-success: #10B981;
 
-  --font-headings: 'Montserrat', sans-serif;
-  --font-body: 'Poppins', sans-serif;
+  --font-headings: 'Space Grotesk', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
 
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
-  --shadow-glow-blue: 0 0 15px rgba(30, 30, 191, 0.4);
-  --shadow-glow-gold: 0 0 20px rgba(245, 166, 35, 0.35);
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-glow-blue: 0 0 15px rgba(249, 115, 22, 0.4);
+  --shadow-glow-gold: 0 0 20px rgba(249, 115, 22, 0.35);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.7);
 
   --border-radius-sm: 6px;
   --border-radius-md: 12px;
@@ -172,7 +172,7 @@ header.navbar-container {
 }
 
 header.navbar-container.scrolled {
-  background-color: rgba(10, 10, 46, 0.95);
+  background-color: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   padding: 0.8rem 0;
@@ -389,7 +389,7 @@ header.navbar-container.scrolled {
 .btn-secondary {
   border: 2px solid var(--color-border-subtle);
   color: var(--color-white);
-  background-color: rgba(10, 10, 46, 0.5);
+  background-color: rgba(15, 23, 42, 0.5);
 }
 
 .btn-secondary:hover {
@@ -421,7 +421,7 @@ header.navbar-container.scrolled {
 .badge-outline-gold {
   border: 1px solid var(--color-gold);
   color: var(--color-gold);
-  background-color: rgba(245, 166, 35, 0.1);
+  background-color: rgba(249, 115, 22, 0.1);
 }
 
 /* ==========================================
@@ -469,11 +469,13 @@ header.navbar-container.scrolled {
   padding: 120px 0 80px;
   overflow: hidden;
   background-color: var(--color-navy-dark);
+  background-image: radial-gradient(80% 60%, transparent 30%, var(--color-navy-dark) 100%), url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40L40 0' stroke='%23334155' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 40px 40px;
   z-index: 1;
 }
 
 .hero-radial-glow {
-  background: radial-gradient(ellipse 800px 500px at 40% 50%, rgba(30, 30, 191, 0.35) 0%, transparent 70%);
+  background: radial-gradient(ellipse 800px 500px at 40% 50%, rgba(249, 115, 22, 0.18) 0%, transparent 70%);
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -502,7 +504,7 @@ header.navbar-container.scrolled {
   align-items: center;
   gap: 8px;
   border: 1px solid var(--color-gold);
-  background: rgba(245, 166, 35, 0.08);
+  background: rgba(249, 115, 22, 0.08);
   color: var(--color-gold);
   padding: 8px 16px;
   border-radius: 9999px;
@@ -521,7 +523,7 @@ header.navbar-container.scrolled {
   margin-bottom: 16px;
   letter-spacing: -0.5px;
   color: var(--color-white);
-  font-family: var(--font-headings);
+  font-family: 'Mukta', sans-serif;
 }
 
 .hero-headline .word-wrapper {
@@ -593,7 +595,7 @@ header.navbar-container.scrolled {
 }
 
 .hero-tag:hover {
-  background: rgba(245, 166, 35, 0.15);
+  background: rgba(249, 115, 22, 0.15);
   border-color: var(--color-gold);
   color: var(--color-gold);
   transform: translateY(-2px);
@@ -619,14 +621,14 @@ header.navbar-container.scrolled {
   font-size: 16px;
   padding: 14px 28px;
   border-radius: 9999px;
-  box-shadow: 0 0 20px rgba(245, 166, 35, 0.4);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
   transition: all 0.25s ease;
   animation: ctaPulse 2s infinite;
 }
 
 .hero-cta-row .btn-primary:hover {
   background-color: var(--color-gold-light);
-  box-shadow: 0 0 35px rgba(245, 166, 35, 0.65);
+  box-shadow: 0 0 35px rgba(249, 115, 22, 0.65);
   transform: translateY(-2px);
 }
 
@@ -851,13 +853,13 @@ header.navbar-container.scrolled {
 
 @keyframes ctaPulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.4);
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 20px rgba(245, 166, 35, 0);
+    box-shadow: 0 0 0 20px rgba(249, 115, 22, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(245, 166, 35, 0);
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
   }
 }
 
@@ -954,8 +956,8 @@ header.navbar-container.scrolled {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background-color: rgba(245, 166, 35, 0.1);
-  border: 1px solid rgba(245, 166, 35, 0.2);
+  background-color: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1163,7 +1165,7 @@ header.navbar-container.scrolled {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: rgba(245, 166, 35, 0.1);
+  background-color: rgba(249, 115, 22, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1235,7 +1237,7 @@ header.navbar-container.scrolled {
 
 .testimonial-quote-icon {
   font-size: 4rem;
-  color: rgba(245, 166, 35, 0.08);
+  color: rgba(249, 115, 22, 0.08);
   position: absolute;
   top: -30px;
   left: -10px;
@@ -1384,27 +1386,38 @@ header.navbar-container.scrolled {
 /* ==========================================
    13. ADMISSION CTA SECTION (GOLD GRADIENT)
    ========================================== */
+/* ==========================================
+   13. ADMISSION CTA SECTION (SLATE LAYOUT)
+   ========================================== */
 .admission-section {
-  background: linear-gradient(135deg, var(--color-gold) 0%, #E8941A 100%);
-  color: var(--color-navy-dark);
+  background-color: var(--color-navy-dark);
+  color: var(--color-white);
   position: relative;
   z-index: 5;
+  border-top: 1px solid var(--color-border-subtle);
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
 }
 
 .admission-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 4rem;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: stretch;
 }
 
-.admission-badge-container {
-  margin-bottom: 1.5rem;
+@media (max-width: 992px) {
+  .admission-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.text-center.mb-16 {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 .admission-badge {
-  background-color: var(--color-navy-dark);
+  background-color: var(--color-navy-card);
   color: var(--color-gold);
   font-weight: 700;
   padding: 0.5rem 1.2rem;
@@ -1412,102 +1425,115 @@ header.navbar-container.scrolled {
   font-size: 0.85rem;
   letter-spacing: 1px;
   display: inline-block;
+  border: 1px solid var(--color-border-subtle);
+  margin-bottom: 1rem;
 }
 
 .admission-title {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: var(--color-navy-dark);
+  color: var(--color-white);
   margin-bottom: 1rem;
   line-height: 1.15;
 }
 
-.admission-tags {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.admission-tag-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.admission-tag-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-navy-dark);
+.admission-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
 }
 
 /* Countdown Clock */
-.countdown-box {
-  background-color: var(--color-navy-dark);
-  color: var(--color-white);
-  padding: 2.5rem;
+.flex-col-align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-navy-card);
+  border: 1px solid var(--color-border-subtle);
+  padding: 3rem 2.5rem;
   border-radius: var(--border-radius-lg);
-  text-align: center;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-card);
 }
 
-.countdown-box h3 {
-  font-size: 1.2rem;
-  color: var(--color-gold);
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+.countdown-title-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .countdown-digits-wrapper {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .countdown-col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 70px;
+  flex: 1;
+  max-width: 100px;
 }
 
 .countdown-num {
   font-family: var(--font-headings);
-  font-size: 2.4rem;
+  font-size: 3rem;
   font-weight: 800;
-  background-color: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--color-gold);
+  background-color: var(--color-navy-deep);
+  border: 1px solid var(--color-border-subtle);
   border-radius: var(--border-radius-md);
   width: 100%;
-  padding: 0.5rem 0;
+  text-align: center;
+  padding: 0.8rem 0;
   line-height: 1;
   margin-bottom: 0.5rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .countdown-lbl {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
-.batches-enrolling-msg {
-  font-family: var(--font-headings);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--color-gold);
-  padding: 1rem 0;
+.countdown-disclaimer {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.5;
 }
 
-/* Schedule Table */
+/* Schedule Card (Right Column) */
+.schedule-card-container {
+  background-color: var(--color-navy-card);
+  border: 1px solid var(--color-border-subtle);
+  padding: 3rem 2.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.schedule-title-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 2rem;
+}
+
 .schedule-table-box {
-  margin-top: 2rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  background-color: var(--color-navy-deep);
+  border: 1px solid var(--color-border-subtle);
   border-radius: var(--border-radius-md);
   overflow: hidden;
 }
@@ -1518,20 +1544,35 @@ header.navbar-container.scrolled {
 }
 
 .schedule-table td {
-  padding: 0.8rem 1.2rem;
-  font-size: 0.95rem;
+  padding: 1.2rem 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
-  border-bottom: 1px solid rgba(10, 10, 46, 0.1);
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-off-white);
 }
 
 .schedule-table tr:last-child td {
   border-bottom: none;
 }
 
-.schedule-table td:last-child {
+.schedule-row-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.schedule-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+  box-shadow: 0 0 8px var(--color-gold);
+}
+
+.schedule-date-cell {
   text-align: right;
-  font-weight: 700;
-  color: var(--color-navy-dark);
+  font-weight: 700 !important;
+  color: var(--color-white) !important;
 }
 
 /* ==========================================
@@ -1579,7 +1620,7 @@ header.navbar-container.scrolled {
 .form-group select, 
 .form-group textarea {
   width: 100%;
-  background-color: rgba(10, 10, 46, 0.6);
+  background-color: rgba(15, 23, 42, 0.6);
   border: 1.5px solid var(--color-border-subtle);
   border-radius: var(--border-radius-sm);
   padding: 0.75rem 1rem;
@@ -1592,7 +1633,7 @@ header.navbar-container.scrolled {
 .form-group textarea:focus {
   border-color: var(--color-gold);
   outline: none;
-  box-shadow: 0 0 10px rgba(245, 166, 35, 0.2);
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);
 }
 
 .form-group textarea {

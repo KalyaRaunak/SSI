@@ -129,7 +129,7 @@ function initCanvasParticles() {
       this.speedY = -(Math.random() * 0.9 + 0.3); // Float upward slowly (0.3 to 1.2 speed)
       this.speedX = Math.random() * 0.2 - 0.1; // Very slight horizontal sway
       this.alpha = Math.random() * 0.6 + 0.2; // 0.2 to 0.8 opacity
-      this.colorType = Math.random() < 0.7 ? 'white' : 'gold'; // 70% white, 30% gold
+      this.colorType = Math.random() < 0.7 ? 'white' : 'orange'; // 70% white, 30% orange
     }
 
     update() {
@@ -155,11 +155,11 @@ function initCanvasParticles() {
       if (this.colorType === 'white') {
         ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
       } else {
-        ctx.fillStyle = `rgba(245, 166, 35, ${this.alpha})`;
+        ctx.fillStyle = `rgba(249, 115, 22, ${this.alpha})`;
       }
       
       ctx.shadowBlur = 4;
-      ctx.shadowColor = this.colorType === 'white' ? '#FFFFFF' : '#F5A623';
+      ctx.shadowColor = this.colorType === 'white' ? '#FFFFFF' : '#f97316';
       ctx.fill();
       ctx.restore();
     }

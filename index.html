@@ -18,7 +18,7 @@
   <!-- Performance Optimization: Preconnect Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
@@ -529,81 +529,94 @@
   </section>
 
   <!-- SECTION 9: ADMISSION CTA SECTION (Countdown) -->
-  <section class="section-padding admission-section">
+  <section class="section-padding admission-section" id="admissions">
     <div class="container">
-      <div class="admission-grid">
-        <!-- Content left -->
-        <div class="reveal-on-scroll">
-          <div class="admission-badge-container">
-            <span class="admission-badge">🌟 ADMISSION OPEN 2026-27</span>
-          </div>
-          <h2 class="admission-title">New Admissions Closing on 30th June 2026</h2>
-          
-          <div class="admission-tags">
-            <div class="admission-tag-row">
-              <span class="admission-tag-dot"></span> Grade 5th to 10th (Foundation & Board)
-            </div>
-            <div class="admission-tag-row">
-              <span class="admission-tag-dot"></span> Grade 11th - 12th Science & Commerce (CBSE / GSEB)
-            </div>
-            <div class="admission-tag-row">
-              <span class="admission-tag-dot"></span> Special batches: JEE Main/Adv, NEET UG, GUJCET
-            </div>
-          </div>
+      
+      <!-- Centered Header above Grid -->
+      <div class="text-center mb-16 reveal-on-scroll">
+        <span class="admission-badge">🌟 ADMISSION OPEN 2026-27</span>
+        <h2 class="admission-title">New Admissions Closing — 30th June 2026</h2>
+        <p class="admission-subtitle">5th to 10th · 11th–12th Science & Commerce · JEE · NEET · GUJCET</p>
+      </div>
 
+      <div class="admission-grid">
+        <!-- Countdown Clock (Left Column) -->
+        <div class="reveal-on-scroll flex-col-align-center" id="countdown-timer">
+          <h3 class="countdown-title-heading">Admission Countdown</h3>
+          <div class="countdown-digits-wrapper">
+            <div class="countdown-col">
+              <span class="countdown-num" id="days">00</span>
+              <span class="countdown-lbl">Days</span>
+            </div>
+            <div class="countdown-col">
+              <span class="countdown-num" id="hours">00</span>
+              <span class="countdown-lbl">Hours</span>
+            </div>
+            <div class="countdown-col">
+              <span class="countdown-num" id="minutes">00</span>
+              <span class="countdown-lbl">Mins</span>
+            </div>
+            <div class="countdown-col">
+              <span class="countdown-num" id="seconds">00</span>
+              <span class="countdown-lbl">Secs</span>
+            </div>
+          </div>
+          <p class="countdown-disclaimer">Limited seats per batch. Enrollment is on a first-come, first-served basis.</p>
+        </div>
+
+        <!-- Schedule Table Card (Right Column) -->
+        <div class="reveal-on-scroll schedule-card-container">
+          <h3 class="schedule-title-heading">New Batch Schedule</h3>
+          
           <div class="schedule-table-box">
             <table class="schedule-table">
               <tr>
-                <td>JEE 2027 — New Batch</td>
-                <td>21st May 2026</td>
+                <td>
+                  <div class="schedule-row-left">
+                    <span class="schedule-dot"></span>
+                    <span>JEE 2027 — New Batch</span>
+                  </div>
+                </td>
+                <td class="schedule-date-cell">21st May 2026</td>
               </tr>
               <tr>
-                <td>NEET 2027 — New Batch</td>
-                <td>21st May 2026</td>
+                <td>
+                  <div class="schedule-row-left">
+                    <span class="schedule-dot"></span>
+                    <span>NEET 2027 — New Batch</span>
+                  </div>
+                </td>
+                <td class="schedule-date-cell">21st May 2026</td>
               </tr>
               <tr>
-                <td>10th & 12th — New Batches</td>
-                <td>23rd April 2026</td>
+                <td>
+                  <div class="schedule-row-left">
+                    <span class="schedule-dot"></span>
+                    <span>10th & 12th — New Batches</span>
+                  </div>
+                </td>
+                <td class="schedule-date-cell">23rd April 2026</td>
               </tr>
               <tr>
-                <td>STD 5th to 9th & 11th</td>
-                <td>21st May 2026</td>
+                <td>
+                  <div class="schedule-row-left">
+                    <span class="schedule-dot"></span>
+                    <span>STD 5th to 9th & 11th</span>
+                  </div>
+                </td>
+                <td class="schedule-date-cell">21st May 2026</td>
               </tr>
             </table>
           </div>
-        </div>
 
-        <!-- Timer / Action right -->
-        <div class="reveal-on-scroll">
-          <div class="countdown-box" id="countdown-timer">
-            <h3>Admissions Close In</h3>
-            <div class="countdown-digits-wrapper">
-              <div class="countdown-col">
-                <span class="countdown-num" id="days">00</span>
-                <span class="countdown-lbl">Days</span>
-              </div>
-              <div class="countdown-col">
-                <span class="countdown-num" id="hours">00</span>
-                <span class="countdown-lbl">Hours</span>
-              </div>
-              <div class="countdown-col">
-                <span class="countdown-num" id="minutes">00</span>
-                <span class="countdown-lbl">Mins</span>
-              </div>
-              <div class="countdown-col">
-                <span class="countdown-num" id="seconds">00</span>
-                <span class="countdown-lbl">Secs</span>
-              </div>
-            </div>
-          </div>
-
-          <div style="text-align: center; margin-top: 2rem;">
-            <a href="#enquiry" class="btn btn-secondary" style="border-color: var(--color-navy-dark); color: var(--color-navy-dark); background: transparent; font-weight: 700; font-size: 1.1rem; padding: 1rem 2.5rem;">
+          <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0.8rem; width: 100%;">
+            <a href="#enquiry" class="btn btn-primary" style="width: 100%; font-size: 1rem; padding: 0.8rem 0;">
               Register / Apply Now &rarr;
             </a>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
